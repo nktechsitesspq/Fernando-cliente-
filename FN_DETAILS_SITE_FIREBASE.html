@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>FN DETAILS | Estética Automotiva</title>
+<meta content="FN Details — Lava Rápido e Estética Automotiva em Ibiúna/SP." name="description"/>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050608;color:#f7f8fb;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(1080px,92%);margin:auto}
+header{height:68px;border-bottom:1px solid #1b2028;background:#050608;display:flex;align-items:center}.logo{font-weight:900;font-size:30px;letter-spacing:1px}.logo span{color:#168cff}
+.hero{padding:54px 0 62px;background:radial-gradient(circle at 78% 35%,rgba(20,124,255,.18),transparent 32%),radial-gradient(circle at 88% 78%,rgba(229,40,53,.12),transparent 28%)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#dbe7fb;display:flex;align-items:center;gap:10px;margin-bottom:18px}.eyebrow:before{content:"";width:38px;height:2px;background:linear-gradient(90deg,#e62936,#147cff)}
+h1{font-size:clamp(46px,7vw,78px);line-height:.96;letter-spacing:-2px;margin:0;max-width:850px}.accent{color:#79adff}.hero p{color:#aeb8c7;font-size:17px;line-height:1.55;margin:22px 0 26px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;font-weight:800;font-size:12px;letter-spacing:1px}.primary{background:#147cff;box-shadow:0 10px 30px rgba(20,124,255,.2)}.ghost{border:1px solid #303844;background:#0c1015}
+section{padding:58px 0}.kicker{color:#80b0ff;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:8px}h2{font-size:clamp(38px,6vw,58px);line-height:.95;margin:0 0 10px;letter-spacing:-1px}.lead{color:#9fa9b8;line-height:1.55;max-width:650px;margin:0}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}.service{border:1px solid #222a35;border-radius:18px;padding:22px;background:linear-gradient(145deg,#10141a,#090b0f)}.icon{font-size:27px;margin-bottom:12px}.service h3{margin:0 0 7px;font-size:19px;letter-spacing:.6px}.service p{margin:0;color:#929cab;font-size:13px;line-height:1.5}
+.gallery{border-top:1px solid #151a22;border-bottom:1px solid #151a22;background:#07090d;overflow:hidden}.track{display:flex;gap:12px;margin-top:26px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;cursor:grab;touch-action:pan-x;user-select:none;-webkit-overflow-scrolling:touch}.track::-webkit-scrollbar{display:none}.photo{flex:0 0 clamp(220px,30vw,320px);aspect-ratio:4/3;border:1px solid #252d38;border-radius:16px;overflow:hidden;background:#11151b;cursor:pointer}.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}.photo:hover img{transform:scale(1.03)}.track.dragging{cursor:grabbing}.photo img{pointer-events:none}
+.instagram{padding-top:48px}.insta{border:1px solid #252d38;border-radius:20px;padding:25px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:linear-gradient(120deg,#10141a,#0a0c10)}.insta strong{font-size:25px}.insta p{color:#9fa9b8;margin:7px 0 0}
+footer{padding:34px 0 22px;border-top:1px solid #171c24}.contact{display:grid;gap:8px;color:#aeb7c4;font-size:14px}.contact a{font-weight:800;color:#eef2f7}.copy{margin-top:20px;padding-top:17px;border-top:1px solid #171c24;color:#68727e;font-size:11px;text-align:center}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.show{display:flex}.modal img{max-width:96vw;max-height:90vh;border-radius:12px}.close{position:absolute;right:18px;top:16px;border:1px solid #39414d;background:#11161d;color:white;width:42px;height:42px;border-radius:50%;font-size:24px}
+@media(max-width:800px){.services{grid-template-columns:1fr}.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.track::-webkit-scrollbar{display:none}.photo{flex:0 0 72%;scroll-snap-align:start}.hero{padding:38px 0 48px}h1{font-size:52px}.insta{display:block}.insta .btn{margin-top:18px}}
+@media(max-width:480px){.wrap{width:94%}header{height:62px}.logo{font-size:27px}.hero{padding:30px 0 42px}.eyebrow{font-size:10px;letter-spacing:1.4px;margin-bottom:14px}h1{font-size:46px;letter-spacing:-1.3px}.hero p{font-size:15px;margin:18px 0 22px}.buttons{display:grid}.btn{width:100%}section{padding:46px 0}.photo{flex-basis:78%}.insta strong{font-size:22px}}
+
+.booking-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;backdrop-filter:blur(7px)}
+.booking-modal.show{display:flex}.booking-box{width:min(430px,100%);background:#0c1016;border:1px solid #29313d;border-radius:22px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.6);position:relative}.booking-box h2{margin:7px 0 8px;font-size:30px}.booking-sub{color:#9aa3b2;margin:0 0 22px;line-height:1.5}.booking-box label{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;margin:16px 0 7px}.booking-box select{width:100%;height:50px;border-radius:12px;border:1px solid #303946;background:#121720;color:#f4f6fa;padding:0 14px;font-size:15px;outline:none}.booking-send{display:flex;margin-top:22px;text-decoration:none;justify-content:center}.booking-close{position:absolute;right:13px;top:8px;border:0;background:transparent;color:#fff;font-size:32px;cursor:pointer}
+
+/* FINAL POLISH */
+html,body{max-width:100%;overflow-x:hidden}
+footer{display:block !important;padding:0 0 14px;border-top:0}
+main{padding-bottom:0 !important;margin-bottom:0 !important}
+.instagram{padding-bottom:34px !important;margin-bottom:0 !important}
+.insta{position:relative;overflow:hidden}
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .2s ease,box-shadow .25s ease,filter .25s ease}
+.btn::after{content:"";position:absolute;top:-60%;left:-75%;width:42%;height:220%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.42),transparent);transform:rotate(18deg);animation:buttonShine 3.8s ease-in-out infinite;pointer-events:none;z-index:-1}
+.primary{box-shadow:0 10px 30px rgba(20,124,255,.22),0 0 0 1px rgba(255,255,255,.05) inset}
+.primary::after{z-index:1}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn:active{transform:translateY(0) scale(.98)}
+@keyframes buttonShine{0%,58%{left:-75%;opacity:0}65%{opacity:1}78%,100%{left:145%;opacity:0}}
+
+/* CARROSSEL AUTOMÁTICO CONTÍNUO — sem pausas entre as fotos */
+.gallery .track{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  width:max-content !important;
+  gap:8px !important;
+  animation: fnDetailsMarquee 22s linear infinite !important;
+  will-change:transform;
+}
+.gallery .photo{
+  flex:0 0 clamp(280px, 72vw, 620px) !important;
+}
+@keyframes fnDetailsMarquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(calc(-50% - 10px),0,0)}
+}
+.gallery .track:hover{animation-play-state:running !important;}
+@media (prefers-reduced-motion: reduce){
+  .gallery .track{animation:none !important;}
+}
+</style><style>footer .contact,footer .copy{display:none}.developer-credit{text-align:center;margin:0 20px;padding-top:12px;font-size:10px;letter-spacing:1.8px;color:#3d4652;font-weight:700;opacity:.78}.developer-credit::after{content:"";display:block;width:48px;height:1px;margin:8px auto 0;background:#202630;opacity:.65}</style>
+
+<style>
+/* FINAL POLISH */
+header .wrap{display:flex;align-items:center;justify-content:center;min-height:68px}
+.logo{position:relative;display:inline-flex;align-items:center;gap:8px}
+.logo-mark{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:"Barlow Condensed",sans-serif;font-size:17px;font-weight:800;letter-spacing:1px;color:#fff;border:1px solid rgba(255,255,255,.2);background:radial-gradient(circle at 30% 25%,#2d8cff 0%,#147cff 38%,#111722 72%);box-shadow:0 0 18px rgba(20,124,255,.35),inset 0 0 12px rgba(255,255,255,.08)}
+.logo-mark:after{content:"";position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid rgba(20,124,255,.16);animation:logoPulse 2.8s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:scale(.92);opacity:.25}50%{transform:scale(1.08);opacity:.8}}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:-40%;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.42) 50%,transparent 62%);transform:translateX(-70%) rotate(8deg);animation:buttonShine 2.8s linear infinite;pointer-events:none;z-index:0}
+.btn>*{position:relative;z-index:2}
+.btn{transition:transform .25s ease,filter .25s ease,box-shadow .25s ease}
+.primary{box-shadow:0 10px 30px rgba(20,124,255,.28),0 0 0 1px rgba(255,255,255,.06) inset,0 0 28px rgba(20,124,255,.12)}
+.primary:hover{box-shadow:0 14px 36px rgba(20,124,255,.38),0 0 0 1px rgba(255,255,255,.08) inset,0 0 38px rgba(20,124,255,.18)}
+.ghost:hover{box-shadow:0 0 24px rgba(255,255,255,.06)}
+@keyframes buttonShine{0%{transform:translateX(-80%) rotate(8deg);opacity:0}12%{opacity:1}35%,100%{transform:translateX(80%) rotate(8deg);opacity:0}}
+.gallery .track{animation:fnDetailsMarquee 15s linear infinite !important;will-change:transform}
+.gallery .track:hover{animation-play-state:running !important}
+.gallery .photo{box-shadow:0 12px 34px rgba(0,0,0,.24);transition:transform .3s ease,box-shadow .3s ease}
+.gallery .photo:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(20,124,255,.12)}
+.developer-credit{color:#313945!important;opacity:.8!important}
+.booking-send{cursor:pointer}
+.booking-send::before{animation-duration:2.2s}
+@media(max-width:800px){header .wrap{justify-content:flex-start;padding-left:10px}.logo-mark{width:34px;height:34px;font-size:15px}.logo-mark:after{width:46px;height:46px}.gallery .track{animation-duration:11s !important}.gallery .photo{flex-basis:78%!important}}
+</style>
+<style>.pulse-click{animation:clickPulse .28s ease}@keyframes clickPulse{50%{transform:scale(.97);filter:brightness(1.15)}}</style>
+<style>
+/* AJUSTE FINAL DO CABEÇALHO */
+header .wrap{justify-content:flex-start!important;width:min(1080px,92%)!important;margin:0 auto!important}
+.logo{gap:7px!important;justify-content:flex-start!important}
+.logo-image{width:42px!important;height:42px!important;flex:0 0 42px!important;object-fit:cover!important;border-radius:50%!important;border:0!important;box-shadow:0 0 14px rgba(20,124,255,.18)!important;background:transparent!important}
+@media(max-width:480px){header .wrap{width:94%!important}.logo-image{width:40px!important;height:40px!important;flex-basis:40px!important}.logo{gap:6px!important}}
+</style><style>/* Posicionamento final da marca no mobile */ @media(max-width:800px){header .wrap{padding-left:4px!important;padding-right:0!important}.logo{transform:translateX(-2px)!important}}</style>
+<style id="fn-details-infinite-carousel">
+.gallery { overflow: hidden !important; }
+.gallery .track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  max-width: none !important;
+  overflow: visible !important;
+  gap: 14px !important;
+  margin-top: 26px !important;
+  padding: 0 !important;
+  transform: translate3d(0,0,0);
+  animation: fnDetailsInfinite 24s linear infinite !important;
+  will-change: transform;
+  touch-action: pan-y !important;
+  scroll-behavior: auto !important;
+}
+.gallery .photo {
+  flex: 0 0 min(68vw,360px) !important;
+  width: min(68vw,360px) !important;
+  max-width: 360px !important;
+  scroll-snap-align: none !important;
+}
+@keyframes fnDetailsInfinite {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(calc(-50% - 7px),0,0); }
+}
+@media (max-width:800px) {
+  .gallery .track { animation-duration: 18s !important; }
+  .gallery .photo {
+    flex-basis: 68vw !important;
+    width: 68vw !important;
+    max-width: 360px !important;
+  }
+}
+@media (max-width:480px) {
+  .gallery .track { animation-duration: 16s !important; }
+  .gallery .photo { flex-basis: 68vw !important; width: 68vw !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery .track { animation: fnDetailsInfinite 24s linear infinite !important; }
+}
+</style>
+<script>
+(function () {
+  function initFNInfiniteGallery() {
+    const track = document.querySelector('.gallery .track');
+    if (!track || track.dataset.fnInfiniteReady === '1') return;
+
+    const originals = Array.from(track.children).filter(el => el.classList.contains('photo'));
+    if (originals.length < 2) return;
+
+    track.dataset.fnInfiniteReady = '1';
+
+    // Remove any old clones from previous versions.
+    Array.from(track.children).forEach(el => {
+      if (el.dataset && el.dataset.fnClone === '1') el.remove();
+    });
+
+    // The second identical set makes the CSS animation loop seamlessly.
+    originals.forEach(photo => {
+      const clone = photo.cloneNode(true);
+      clone.dataset.fnClone = '1';
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFNInfiniteGallery);
+  } else {
+    initFNInfiniteGallery();
+  }
+  window.addEventListener('load', initFNInfiniteGallery, { once: true });
+})();
+</script>
+
+
+<style id="fn-final-header-gallery">
+header{height:96px!important;}
+header .wrap{width:min(1080px,92%);margin:auto;}
+header .logo{display:flex!important;align-items:center!important;gap:10px!important;height:96px!important;color:#fff!important;white-space:nowrap!important;}
+header .logo-image{width:60px!important;height:60px!important;object-fit:cover!important;border-radius:50%!important;display:block!important;flex:0 0 60px!important;box-shadow:0 0 18px rgba(20,124,255,.22)!important;}
+header .logo .brand-fn,header .logo .brand-details{display:inline!important;font-weight:900!important;font-size:38px!important;line-height:1!important;letter-spacing:0!important;}
+header .logo .brand-fn{color:#fff!important;}
+header .logo .brand-details{color:#147cff!important;}
+.gallery .track{gap:8px!important;animation-duration:16.5s!important;}
+.gallery .photo{margin:0!important;}
+@media(max-width:480px){
+ header{height:92px!important;}
+ header .logo{height:92px!important;gap:8px!important;}
+ header .logo-image{width:58px!important;height:58px!important;flex-basis:58px!important;}
+ header .logo .brand-fn,header .logo .brand-details{font-size:34px!important;}
+}
+</style></head>
+<body>
+<header><div class="wrap"><div class="logo"><img class="logo-image" src="data:image/jpeg;base64,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" alt="FN Details"><span class="brand-fn">FN</span><span class="brand-details">DETAILS</span></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">LAVA RÁPIDO • ESTÉTICA AUTOMOTIVA</div>
+<h1>SEU CARRO OU SUA MOTO,<br/><span class="accent">COM APARÊNCIA DE NOVO.</span></h1>
+<p>Mais do que uma lavagem. É cuidado com cada detalhe.</p>
+<div class="buttons"><a class="btn primary" href="#" id="openBooking">AGENDAR PELO WHATSAPP ↗</a><a class="btn ghost" href="#servicos">VER NOSSOS SERVIÇOS ↓</a></div>
+</div></section>
+<section id="servicos"><div class="wrap"><div class="kicker">O QUE FAZEMOS</div><h2>NOSSOS SERVIÇOS</h2><p class="lead">Serviços pensados para valorizar o visual do seu veículo, com atenção aos detalhes.</p>
+<div class="services"><article class="service"><div class="icon">🏍️</div><h3>MOTO SIMPLES</h3><p>Lavagem simples com acabamento cuidadoso.</p><strong class="price">R$ 30</strong></article><article class="service"><div class="icon">🏍️</div><h3>MOTO DETALHADA</h3><p>Lavagem detalhada com atenção em cada detalhe.</p><strong class="price">R$ 50</strong></article><article class="service"><div class="icon">🚗</div><h3>CARRO — DENTRO E FORA</h3><p>Limpeza completa interna e externa.</p><strong class="price">R$ 60</strong></article><article class="service"><div class="icon">🚗</div><h3>CARRO — SÓ DENTRO</h3><p>Limpeza interna do veículo.</p><strong class="price">R$ 30</strong></article><article class="service"><div class="icon">🚗</div><h3>CARRO — SÓ FORA</h3><p>Lavagem externa do veículo.</p><strong class="price">R$ 30</strong></article></div></div></section>
+<section class="gallery" id="trabalhos"><div class="wrap"><h2>NOSSAS LAVAGENS</h2><p class="lead">Confira alguns dos trabalhos realizados pela FN Details.</p><div class="track"></div></div></section>
+<section class="instagram"><div class="wrap"><div class="insta"><div><div class="kicker">INSTAGRAM</div><strong>@_fn_datails</strong><p>Acompanhe nossos trabalhos.</p></div><a class="btn ghost" href="https://www.instagram.com/_fn_datails/" target="_blank">SEGUIR NO INSTAGRAM ↗</a></div></div></section>
+</main>
+<footer><div class="wrap"><div class="contact"><a href="https://wa.me/5515996256323">📱 (15) 99625-6323</a><div>📍 Rod. Julio Dal Fabbro — Ibiúna/SP</div><div>📍 Vargem do Salto — KM 13</div></div><div class="copy">© FN Details. Todos os direitos reservados.</div></div><div class="developer-credit">DESENVOLVIDO POR NICOLAS.015K</div>
+</footer>
+<div aria-hidden="true" class="booking-modal" id="bookingModal">
+<div class="booking-box">
+<button aria-label="Fechar" class="booking-close" id="bookingClose">×</button>
+<div class="kicker">AGENDAMENTO</div>
+<h2>FALE PELO WHATSAPP</h2>
+<p class="booking-sub">Escolha o veículo e o serviço. Depois é só enviar.</p>
+<label for="vehicle">VEÍCULO</label>
+<select id="vehicle">
+<option value="Moto">Moto</option>
+<option value="Carro">Carro</option>
+</select>
+<label for="service">TIPO DE SERVIÇO</label>
+<select id="service">
+<option value="Lavagem detalhada">Lavagem detalhada</option>
+<option value="Lavagem simples">Lavagem simples</option>
+</select>
+<a class="btn primary booking-send" href="#" id="sendBooking">ENVIAR PELO WHATSAPP ↗</a>
+</div>
+</div>
+<div class="modal" id="modal"><button class="close" id="close">×</button><img alt="Foto ampliada" id="modalImg"/></div>
+<script>
+const modal=document.getElementById('modal'),mi=document.getElementById('modalImg');document.querySelectorAll('.photo img').forEach(i=>i.addEventListener('click',()=>{mi.src=i.src;modal.classList.add('show')}));document.getElementById('close').onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show')};
+const booking=document.getElementById('bookingModal'),openBooking=document.getElementById('openBooking'),bookingClose=document.getElementById('bookingClose'),sendBooking=document.getElementById('sendBooking'),vehicle=document.getElementById('vehicle'),service=document.getElementById('service');
+const carServices=[
+  ['Carro — dentro e fora — R$ 60','Carro — dentro e fora — R$ 60'],
+  ['Carro — só dentro — R$ 30','Carro — só dentro — R$ 30'],
+  ['Carro — só fora — R$ 30','Carro — só fora — R$ 30']
+];
+const motoServices=[
+  ['Moto simples — R$ 30','Moto simples — R$ 30'],
+  ['Moto detalhada — R$ 50','Moto detalhada — R$ 50']
+];
+function updateServices(){
+  const options=vehicle.value==='Carro'?carServices:motoServices;
+  service.innerHTML=options.map(([value,label])=>`<option value="${value}">${label}</option>`).join('');
+}
+vehicle.addEventListener('change',updateServices);
+updateServices();
+function openForm(e){if(e)e.preventDefault();booking.classList.add('show');booking.setAttribute('aria-hidden','false')}
+openBooking.addEventListener('click',openForm);bookingClose.addEventListener('click',()=>{booking.classList.remove('show');booking.setAttribute('aria-hidden','true')});booking.addEventListener('click',e=>{if(e.target===booking)booking.classList.remove('show')});
+sendBooking.addEventListener('click',e=>{e.preventDefault();const text=`Olá! Vim pelo site da FN Details.\n\n🚘 Veículo: ${vehicle.value}\n🧽 Tipo de serviço: ${service.value}\n\nGostaria de agendar.`;const url='https://wa.me/5515996256323?text='+encodeURIComponent(text);window.open(url,'_blank','noopener,noreferrer')});
+
+// GALERIA FN DETAILS — carrossel automático infinito e contínuo
+const track=document.querySelector('.gallery .track');
+if(track){
+  const originals=Array.from(track.querySelectorAll(':scope > .photo'));
+  if(originals.length){
+    track.innerHTML='';
+    originals.forEach(el=>track.appendChild(el));
+    originals.forEach(el=>track.appendChild(el.cloneNode(true)));
+    track.classList.add('fn-infinite-carousel');
+
+    let setWidth=0;
+
+    function updateWidth(){
+      const firstClone=track.children[originals.length];
+      if(firstClone){
+        const first=track.children[0].getBoundingClientRect();
+        const clone=firstClone.getBoundingClientRect();
+        setWidth=clone.left-first.left;
+        if(setWidth>0){
+          const duration=Math.max(8,setWidth/55);
+          track.style.setProperty('--fn-loop-duration',duration+'s');
+        }
+      }
+    }
+
+    window.addEventListener('load',updateWidth);
+    window.addEventListener('resize',updateWidth);
+    track.querySelectorAll('img').forEach(img=>{
+      if(!img.complete) img.addEventListener('load',updateWidth);
+    });
+    updateWidth();
+  }
+}
+
+// Extra visual feedback
+for(const b of document.querySelectorAll('.btn')){
+  b.addEventListener('click',()=>{b.classList.remove('pulse-click');void b.offsetWidth;b.classList.add('pulse-click')});
+}
+</script>
+<style>
+/* CARROSSEL FN DETAILS — AUTOMÁTICO, INFINITO E SEM FIM */
+.gallery .wrap{overflow:hidden!important}
+.gallery .track{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:14px!important;
+  width:max-content!important;
+  max-width:none!important;
+  overflow:hidden!important;
+  cursor:default!important;
+  user-select:none!important;
+  transform:translate3d(0,0,0);
+  animation:fnInfiniteLoop var(--fn-loop-duration,30s) linear infinite!important;
+  will-change:transform;
+  scrollbar-width:none!important;
+  touch-action:pan-x!important;
+}
+.gallery .track::-webkit-scrollbar{display:none!important}
+.gallery .photo{
+  flex:0 0 270px!important;
+  width:270px!important;
+  scroll-snap-align:none!important;
+}
+.gallery .photo img{
+  display:block;
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  border-radius:18px;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:auto;
+}
+@keyframes fnInfiniteLoop{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(calc(-50% - 7px),0,0)}
+}
+@media(max-width:600px){
+  .gallery .photo{flex:0 0 76vw!important;width:76vw!important}
+  .gallery .photo img{height:210px}
+}
+</style>
+<style id="fn-details-final-fix">
+/* ===== FN DETAILS — CORREÇÃO FINAL ===== */
+/* Marca: FN branco + DETAILS azul */
+.logo .brand-fn{color:#fff !important;}
+.logo .brand-details{color:#147cff !important;}
+
+/* Galeria: cada foto é somente a imagem, sem área vazia */
+.gallery{overflow:hidden !important;}
+.gallery .wrap{overflow:hidden !important;}
+.gallery .track{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:8px !important;
+  margin-top:26px !important;
+  padding:0 !important;
+  width:max-content !important;
+  max-width:none !important;
+  overflow:visible !important;
+  scrollbar-width:none !important;
+  cursor:default !important;
+  user-select:none !important;
+  -webkit-user-select:none !important;
+  touch-action:pan-y !important;
+  overscroll-behavior-x:none !important;
+  -webkit-overflow-scrolling:auto !important;
+  animation:fnDetailsFinalInfinite 30s linear infinite !important;
+  will-change:transform;
+}
+.gallery .track::-webkit-scrollbar{display:none !important;}
+.gallery .photo{
+  box-sizing:border-box !important;
+  flex:0 0 min(76vw,540px) !important;
+  width:min(76vw,540px) !important;
+  height:auto !important;
+  aspect-ratio:4/3 !important;
+  min-height:0 !important;
+  max-width:540px !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:1px solid #252d38 !important;
+  border-radius:16px !important;
+  overflow:hidden !important;
+  background:#11151b !important;
+  scroll-snap-align:none !important;
+  touch-action:pan-y !important;
+}
+.gallery .photo img{
+  display:block !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:100% !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  user-select:none !important;
+  -webkit-user-drag:none !important;
+  touch-action:pan-y !important;
+}
+@keyframes fnDetailsFinalInfinite{
+  from{transform:translate3d(0,0,0);}
+  to{transform:translate3d(calc(-50% - 4px),0,0);}
+}
+/* Nunca pausa quando o dedo/mouse passa por cima */
+.gallery .track:hover{animation-play-state:running !important;}
+.gallery .track:active{animation-play-state:running !important;}
+
+/* No celular, a página continua podendo subir/descer quando o dedo está sobre a galeria */
+@media(max-width:800px){
+  .gallery .track{touch-action:pan-y !important;animation-duration:18s !important;}
+  .gallery .photo{flex-basis:76vw !important;width:76vw !important;max-width:none !important;}
+  .gallery .photo img{touch-action:pan-y !important;}
+}
+@media(max-width:480px){
+  .gallery .track{animation-duration:16s !important;}
+  .gallery .photo{flex-basis:82vw !important;width:82vw !important;}
+}
+</style>
+<script id="fn-details-final-carousel-fix">
+(function(){
+  const track=document.querySelector('.gallery .track');
+  if(!track) return;
+
+  /* Remove clones created by older carousel versions, then make exactly one duplicate set. */
+  const original=Array.from(track.children).filter(el=>el.classList.contains('photo') && el.dataset.fnFinalClone!=='1');
+  if(!original.length) return;
+
+  track.innerHTML='';
+  original.forEach(el=>track.appendChild(el));
+  original.forEach(el=>{
+    const clone=el.cloneNode(true);
+    clone.dataset.fnFinalClone='1';
+    clone.setAttribute('aria-hidden','true');
+    track.appendChild(clone);
+  });
+
+  /* Keep vertical page scrolling working while the carousel itself moves automatically. */
+  track.addEventListener('touchstart', function(){}, {passive:true});
+  track.addEventListener('touchmove', function(){}, {passive:true});
+})();
+</script>
+
+
+
+
+
+<script type="module" id="fn-firebase-gallery">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBtbofdUSI248ZAL8XVvFLx3DrOLkktrB4",
+  authDomain: "fernandodn-6edc6.firebaseapp.com",
+  databaseURL: "https://fernandodn-6edc6-default-rtdb.firebaseio.com",
+  projectId: "fernandodn-6edc6",
+  storageBucket: "fernandodn-6edc6.firebasestorage.app",
+  messagingSenderId: "30478316760",
+  appId: "1:30478316760:web:8c38940888b0e230c3d3ad",
+  measurementId: "G-PR6XX55NLD"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const track = document.querySelector('.gallery .track');
+
+function rebuildCarousel(items){
+  if(!track) return;
+  const allBase = Array.from(track.children).filter(el => !el.dataset.fnFinalClone && el.dataset.fnRemote !== '1');
+  const removedBase = new Set(items.filter(x=>x.type==='removeBase' && Number.isInteger(x.baseIndex)).map(x=>x.baseIndex));
+  const removedRemote = new Set(items.filter(x=>x.type==='removeRemote' && x.targetId).map(x=>x.targetId));
+  track.innerHTML='';
+  allBase.forEach((el,i)=>{ if(!removedBase.has(i)) track.appendChild(el); });
+
+  const remote = items.filter(x=>(x.dataUrl||x.url) && !removedRemote.has(x.id));
+  remote.sort((a,b)=>{
+    const ta=a.createdAt?.seconds ? a.createdAt.seconds : 0;
+    const tb=b.createdAt?.seconds ? b.createdAt.seconds : 0;
+    return ta-tb;
+  });
+  remote.forEach(item=>{
+    const src=item.dataUrl||item.url;
+    const card=document.createElement('div'); card.className='photo'; card.dataset.fnRemote='1';
+    const img=document.createElement('img'); img.src=src; img.alt='Trabalho realizado pela FN Details'; img.loading='eager'; img.draggable=false;
+    img.onerror=()=>card.remove(); card.appendChild(img); track.appendChild(card);
+  });
+
+  const originals=Array.from(track.children);
+  if(!originals.length) return;
+  originals.forEach(el=>{const c=el.cloneNode(true); c.dataset.fnFinalClone='1'; c.setAttribute('aria-hidden','true'); track.appendChild(c);});
+  track.style.animation='none'; void track.offsetWidth; track.style.animation='fnDetailsFinalInfinite var(--fn-loop-duration,30s) linear infinite';
+  requestAnimationFrame(()=>{ const half=track.scrollWidth/2; track.style.setProperty('--fn-loop-duration',Math.max(17,half/34)+'s'); });
+}
+
+let lastItems = [];
+function applySnapshot(snap){
+  lastItems = snap.docs.map(d=>({id:d.id,...d.data()}));
+  rebuildCarousel(lastItems);
+}
+
+onSnapshot(collection(db,'galleryPhotos'), snap=>{
+  applySnapshot(snap);
+}, err=>{
+  console.error('FN DETAILS Firebase realtime:',err);
+});
+
+// Fallback: também atualiza periodicamente caso o navegador perca a conexão em tempo real.
+import { getDocs } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+async function refreshGallery(){
+  try {
+    const snap = await getDocs(collection(db,'galleryPhotos'));
+    applySnapshot(snap);
+  } catch(e) {
+    console.error('FN DETAILS Firebase leitura:', e);
+  }
+}
+setInterval(refreshGallery, 4000);
+
+</script>
+
+</body>
